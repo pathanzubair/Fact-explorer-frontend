@@ -9,8 +9,6 @@ const Navigation = () => {
         <Link to="/" className="nav-logo">IPQuest</Link>
         <ul className="nav-menu">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/">Games</Link></li>
-          <li><Link to="/">Leaderboard</Link></li>
           <li> <a href="https://spectacular-gelato-0498cd.netlify.app/">Reference Hub</a></li>
        </ul>
       </div>
