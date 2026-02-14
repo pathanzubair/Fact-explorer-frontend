@@ -8,7 +8,7 @@ const Navigation = () => {
       <div className="nav-container">
         <Link to="/" className="nav-logo">IPQuest</Link>
         <ul className="nav-menu">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="fact-explorer-frontend\public\reference.html">Home</Link></li>
           <li> <a href="https://spectacular-gelato-0498cd.netlify.app/">Reference Hub</a></li>
        </ul>
       </div>
