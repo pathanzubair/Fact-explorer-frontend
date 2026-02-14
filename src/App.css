@@ -1,0 +1,264 @@
+/* --- GLOBAL THEME --- */
+:root {
+  --primary-blue: #1e3a8a;
+  --bg-gray: #f3f4f6;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- NAVBAR & LAYOUT --- */
+.navbar {
+  background-color: var(--primary-blue);
+  padding: 15px 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-logo { color: white; font-size: 24px; font-weight: 700; text-decoration: none; }
+.nav-menu { list-style: none; display: flex; gap: 25px; padding: 0; margin: 0; }
+.nav-menu a { color: #e0e7ff; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.nav-menu a:hover { color: white; }
+
+.app-content { flex: 1; padding-bottom: 40px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+/* --- HEADERS --- */
+header { text-align: center; margin-bottom: 40px; }
+h1 { color: var(--primary-blue); font-size: 2.5rem; margin-bottom: 10px; letter-spacing: -0.5px; }
+header p { color: var(--text-light); font-size: 1.1rem; }
+
+/* --- CONTROLS (Search & Filter) --- */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+input, select {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus { outline: none; border-color: var(--primary-blue); }
+.search-bar { width: 300px; }
+
+/* --- MODERN CARD GRID --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Wider cards */
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Color-coded Top Borders */
+.card.Patent { border-top: 6px solid #3b82f6; }       /* Blue */
+.card.Copyright { border-top: 6px solid #ef4444; }    /* Red */
+.card.Trademark { border-top: 6px solid #eab308; }    /* Yellow */
+.card.TradeSecret { border-top: 6px solid #10b981; }  /* Green */
+.card.News { border-top: 6px solid #8e44ad; }         /* Purple */
+
+/* Card Body */
+.card-content { padding: 24px; flex-grow: 1; }
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 12px 0;
+  line-height: 1.4;
+}
+
+.card p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card.Patent .badge { background: #eff6ff; color: #1e40af; }
+.card.Copyright .badge { background: #fef2f2; color: #991b1b; }
+.card.Trademark .badge { background: #fefce8; color: #854d0e; }
+.card.TradeSecret .badge { background: #ecfdf5; color: #065f46; }
+.card.News .badge { background: #f3e8ff; color: #6b21a8; }
+
+/* --- CARD FOOTER (Fixes the merging issue) --- */
+.card-footer {
+  background-color: #f9fafb;
+  border-top: 1px solid #f3f4f6;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between; /* Pushes Domain left and Year right */
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.footer-item { display: flex; align-items: center; gap: 6px; }
+
+/* --- FOOTER --- */
+.footer {
+  background-color: var(--primary-blue);
+  color: white;
+  text-align: center;
+  padding: 24px;
+  margin-top: auto;
+}
+
+/* --- ADMIN SPECIFIC STYLES --- */
+
+/* Purple Fetch Button */
+.btn-purple {
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+}
+.btn-purple:hover {
+  background-color: #732d91;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(142, 68, 173, 0.4);
+}
+
+/* Admin Card Header (Holds Title + Delete Button) */
+.admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  transition: opacity 0.2s, color 0.2s;
+  padding: 5px;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  color: #ef4444; /* Red on hover */
+  background-color: #fef2f2;
+  border-radius: 50%;
+}
+
+
+/* --- 🛠️ ADMIN BUTTON MAKEOVER --- */
+
+/* 1. Force the container to separate the buttons */
+.button-group {
+  display: flex;
+  justify-content: center; /* Center them */
+  align-items: center;
+  gap: 20px; /* Big space between buttons */
+  margin: 30px auto;
+  flex-wrap: wrap; /* Wraps if screen is small */
+}
+
+/* 2. The Button Base Style (Applies to ALL buttons) */
+.toggle-btn {
+  padding: 12px 25px;       /* Bigger click area */
+  font-size: 16px;          /* Readable text */
+  font-weight: 700;         /* Bold text */
+  border-radius: 50px;      /* Pill shape (Round) */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow */
+  display: flex;
+  align-items: center;
+  gap: 10px;                /* Space between icon and text */
+}
+
+/* 3. Hover Effect (Lifts up) */
+.toggle-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* 4. Specific Colors */
+
+/* Blue (Add Fact) */
+.btn-primary {
+  background-color: #1e3a8a; 
+  color: white;
+}
+
+/* Purple (Fetch News) */
+.btn-purple {
+  background: linear-gradient(135deg, #8e44ad, #9b59b6); /* Fancy Gradient */
+  color: white;
+}
+
+/* Red Outline (Reset) */
+.btn-reset {
+  background-color: white;
+  color: #c0392b;
+  border: 2px solid #c0392b;
+}
+.btn-reset:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+/* 5. Fix for the Link Tag (Important!) */
+/* This ensures the 'Link' doesn't mess up the layout */
+.button-group a {
+  text-decoration: none;
+}
