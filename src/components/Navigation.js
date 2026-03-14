@@ -9,8 +9,8 @@ const Navigation = () => {
         <ul className="nav-menu">
           <li><Link to="/">Home</Link></li>
           
-          {/* 🟢 Internal link to your Fact Explorer module */}
-          <li><Link to="https://reference-be-1.onrender.com/">Reference Hub</Link></li>
+          {/* 🟢 CORRECT: Only use the path name defined in your App.js Route */}
+          <li><Link to="/reference-hub">Reference Hub</Link></li>
         </ul>
       </div>
     </nav>
