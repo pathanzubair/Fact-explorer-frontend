@@ -15,7 +15,6 @@ function App() {
 
       <div className="app-content">
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/add" element={<FactForm />} />
           
           {/* 🟢 FIX: Use the internal path name, NOT a full URL */}
