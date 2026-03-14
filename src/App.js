@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import FactForm from './components/FactForm';
 import Admin from './components/Admin';
-import ReferenceHub from './components/ReferenceHub'; 
 
 import './App.css';
 
@@ -20,7 +19,6 @@ function App() {
           <Route path="/add" element={<FactForm />} />
           
           {/* 🟢 FIX: Use the internal path name, NOT a full URL */}
-          <Route path="/reference-hub" element={<ReferenceHub />} />
           
           <Route path="/admin" element={<Admin />} />
         </Routes>
