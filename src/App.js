@@ -21,7 +21,7 @@ function App() {
           <Route path="/add" element={<FactForm />} />
           
           {/* 🟢 2. ADD THE REFERENCE HUB ROUTE HERE */}
-          <Route path="/reference-hub" element={<ReferenceHub />} />
+          <Route path="https://reference-be-1.onrender.com/" element={<ReferenceHub />} />
           
           <Route path="/admin" element={<Admin />} />
         </Routes>
