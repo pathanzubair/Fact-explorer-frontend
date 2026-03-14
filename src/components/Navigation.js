@@ -7,7 +7,7 @@ const Navigation = () => {
       <div className="nav-container">
         <Link to="/" className="nav-logo">IPQuest</Link>
         <ul className="nav-menu">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="https://quizzy-frontend-c27i.onrender.com">Home</Link></li>
           
           {/* 🟢 Use <a> for a completely separate Render site */}
           <li>
