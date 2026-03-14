@@ -2,8 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const Home = () => {
-  const [facts, setFacts] = useState([]); // Initialize as empty array
-  const [loading, setLoading] = useState(true); // Added loading state
+  // 1. Initialize as an empty array [] to avoid .map errors
+  const [facts, setFacts] = useState([]); 
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({ 
     ipr_type: 'All', 
     domain: 'All', 
@@ -15,11 +16,13 @@ const Home = () => {
     setLoading(true);
     try {
       const params = new URLSearchParams(filters).toString();
+      const url = `https://fact-explorer-backend.onrender.com/api/facts?${params}`;
       
-      // ✅ FIX: Use your Render Backend URL instead of localhost
-      const response = await axios.get(`https://fact-explorer-backend.onrender.com/api/facts?${params}`);
+      console.log("Fetching from:", url); // Debugging log
+      const response = await axios.get(url);
       
-      setFacts(response.data);
+      console.log("Data received:", response.data); // Debugging log
+      setFacts(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -36,45 +39,49 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
-      <header>
+    <div className="container" style={{ padding: '20px', minHeight: '80vh' }}>
+      <header style={{ textAlign: 'center', marginBottom: '30px' }}>
         <h1>IPQuest Fact Explorer</h1>
         <p>Discover Intellectual Property Trends & Live News</p>
       </header>
       
-      <div className="controls">
+      {/* Filters Section */}
+      <div className="controls" style={{ display: 'flex', gap: '10px', marginBottom: '20px', justifyContent: 'center' }}>
         <input 
-          type="text" 
-          name="search" 
-          placeholder="🔍 Search facts..." 
-          value={filters.search} 
-          onChange={handleFilterChange} 
-          className="search-bar"
+          type="text" name="search" placeholder="🔍 Search..." 
+          value={filters.search} onChange={handleFilterChange} 
+          style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
         />
         <select name="ipr_type" onChange={handleFilterChange} value={filters.ipr_type}>
           <option value="All">All Types</option>
           <option value="Patent">Patent</option>
           <option value="Copyright">Copyright</option>
           <option value="Trademark">Trademark</option>
-          <option value="Trade Secret">Trade Secret</option>
-          <option value="News">News</option>
         </select>
-        {/* ... other dropdowns ... */}
       </div>
 
-      <div className="facts-grid">
+      {/* Facts Display Section */}
+      <div className="facts-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
         {loading ? (
-          <p>Loading the latest facts...</p>
+          <p style={{ textAlign: 'center', gridColumn: '1/-1' }}>Loading the latest facts...</p>
         ) : facts.length > 0 ? (
           facts.map((fact) => (
-            <div key={fact._id} className="fact-card">
-              <h3>{fact.title}</h3>
+            <div key={fact._id} className="fact-card" style={{ border: '1px solid #ddd', padding: '15px', borderRadius: '8px', backgroundColor: '#f9f9f9' }}>
+              <h3 style={{ marginTop: 0 }}>{fact.title}</h3>
               <p>{fact.description}</p>
-              <span className="badge">{fact.ipr_type}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
+                <span style={{ backgroundColor: '#007bff', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '0.8rem' }}>
+                  {fact.ipr_type}
+                </span>
+                <small style={{ color: '#666' }}>{new Date(fact.createdAt).toLocaleDateString()}</small>
+              </div>
             </div>
           ))
         ) : (
-          <p>No facts found. Try changing your filters or fetching new data!</p>
+          <div style={{ textAlign: 'center', gridColumn: '1/-1' }}>
+            <p>No facts found in the database.</p>
+            <p>Try clicking <strong>"Fetch Live News"</strong> on the Admin page.</p>
+          </div>
         )}
       </div>
     </div>
