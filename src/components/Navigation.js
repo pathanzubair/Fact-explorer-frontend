@@ -9,7 +9,7 @@ const Navigation = () => {
         <Link to="/" className="nav-logo">IPQuest</Link>
         <ul className="nav-menu">
           <li><Link to="/">Home</Link></li>
-          <li> <a href="https://spectacular-gelato-0498cd.netlify.app/">Reference Hub</a></li>
+          <li> <a href="https://reference-be-1.onrender.com/">Reference Hub</a></li>
        </ul>
       </div>
     </nav>
