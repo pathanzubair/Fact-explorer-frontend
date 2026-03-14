@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import FactForm from './components/FactForm';
 import Admin from './components/Admin';
-import ReferenceHub from './pages/ReferenceHub'; 
+import ReferenceHub from './components/ReferenceHub'; 
 
 import './App.css';
 
