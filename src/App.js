@@ -11,14 +11,14 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <Navigation /> 
+      <Navigation />
 
       <div className="app-content">
         <Routes>
+          {/* Fix: Root route */}
+          <Route path="/" element={<Home />} />
+
           <Route path="/add" element={<FactForm />} />
-          
-          {/* 🟢 FIX: Use the internal path name, NOT a full URL */}
-          
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </div>
