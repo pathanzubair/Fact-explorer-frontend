@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Change "Navbar" to "Navigation"
 const Navigation = () => {
   return (
     <nav className="navbar">
@@ -9,11 +8,13 @@ const Navigation = () => {
         <Link to="/" className="nav-logo">IPQuest</Link>
         <ul className="nav-menu">
           <li><Link to="/">Home</Link></li>
-          <li> <a href="https://reference-be-1.onrender.com/">Reference Hub</a></li>
-       </ul>
+          
+          {/* 🟢 Internal link to your Fact Explorer module */}
+          <li><Link to="https://reference-be-1.onrender.com/">Reference Hub</Link></li>
+        </ul>
       </div>
     </nav>
   );
 };
 
-export default Navigation; // Export the new name
+export default Navigation;
