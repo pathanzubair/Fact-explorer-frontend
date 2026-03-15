@@ -52,7 +52,7 @@ const Home = () => {
     <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
       <header style={{ textAlign: 'center', marginBottom: '50px' }}>
         <h1 style={{ color: '#2c3e50', fontSize: '2.8rem', fontWeight: '800' }}>IPQuest Fact Explorer</h1>
-        <p style={{ color: '#7f8c8d', fontSize: '1.2rem' }}>A Growing Knowledge Base of Professional IPR Examples</p>
+        {/* <p style={{ color: '#7f8c8d', fontSize: '1.2rem' }}>A Growing Knowledge Base of Professional IPR Examples</p> */}
       </header>
 
       {/* FILTER BAR */}
